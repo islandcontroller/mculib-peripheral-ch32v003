@@ -39,36 +39,6 @@ uint32_t DBGMCU_GetDEVID(void)
 }
 
 /*********************************************************************
- * @fn      __get_DEBUG_CR
- *
- * @brief   Return the DEBUGE Control Register
- *
- * @return  DEBUGE Control value
- */
-uint32_t __get_DEBUG_CR(void)
-{
-    uint32_t result;
-
-    __asm volatile("csrr %0,""0x7C0" : "=r"(result));
-    return (result);
-}
-
-/*********************************************************************
- * @fn      __set_DEBUG_CR
- *
- * @brief   Set the DEBUGE Control Register
- *
- * @param   value  - set DEBUGE Control value
- *
- * @return  none
- */
-void __set_DEBUG_CR(uint32_t value)
-{
-    __asm volatile("csrw 0x7C0, %0" : : "r"(value));
-}
-
-
-/*********************************************************************
  * @fn      DBGMCU_Config
  *
  * @brief   Configures the specified peripheral and low power mode behavior
@@ -85,17 +55,14 @@ void __set_DEBUG_CR(uint32_t value)
  */
 void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState)
 {
-    uint32_t val;
-
+    uint32_t regval = __get_DEBUGCR();
     if(NewState != DISABLE)
     {
-        __set_DEBUG_CR(DBGMCU_Periph);
+        regval |= DBGMCU_Periph;
     }
     else
     {
-        val = __get_DEBUG_CR();
-        val &= ~(uint32_t)DBGMCU_Periph;
-        __set_DEBUG_CR(val);
+        regval &= ~DBGMCU_Periph;
     }
-
+    __set_DEBUGCR(regval);
 }
