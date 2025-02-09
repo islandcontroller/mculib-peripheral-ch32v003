@@ -129,7 +129,7 @@ typedef struct
 
 /* ADC_external_trigger_sources_delay_channels_definition */
 #define ADC_ExternalTrigRegul_DLY                      ((uint32_t)0x00000000)
-#define ADC_ExternalTrigInjec_DLY                      ((uint32_t)0x00020000)
+#define ADC_ExternalTrigInjec_DLY                      ((uint32_t)0x00000200)
 
 
 void       ADC_DeInit(ADC_TypeDef *ADCx);

@@ -24,7 +24,7 @@ typedef enum
 {
     GPIO_Speed_10MHz = 1,
     GPIO_Speed_2MHz,
-    GPIO_Speed_50MHz
+    GPIO_Speed_30MHz
 } GPIOSpeed_TypeDef;
 
 /* Configuration Mode enumeration */
@@ -84,7 +84,7 @@ typedef enum
 #define GPIO_PartialRemap1_TIM2        ((uint32_t)0x00180100) /* TIM2 Partial1 Alternate Function mapping */
 #define GPIO_PartialRemap2_TIM2        ((uint32_t)0x00180200) /* TIM2 Partial2 Alternate Function mapping */
 #define GPIO_FullRemap_TIM2            ((uint32_t)0x00180300) /* TIM2 Full Alternate Function mapping */
-#define GPIO_Remap_PA1_2               ((uint32_t)0x00008000) /* PA1 and PA2 Alternate Function mapping */
+#define GPIO_Remap_PA1_PA2             ((uint32_t)0x00008000) /* PA1 and PA2 Alternate Function mapping */
 #define GPIO_Remap_ADC1_ETRGINJ        ((uint32_t)0x00200002) /* ADC1 External Trigger Injected Conversion remapping */
 #define GPIO_Remap_ADC1_ETRGREG        ((uint32_t)0x00200004) /* ADC1 External Trigger Regular Conversion remapping */
 #define GPIO_Remap_LSI_CAL             ((uint32_t)0x00200080) /* LSI calibration Alternate Function mapping */
