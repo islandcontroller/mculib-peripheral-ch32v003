@@ -6,7 +6,7 @@
  * Description        : CH32V00x Device Peripheral Access Layer Header File.
  *********************************************************************************
  * Copyright (c) 2021 Nanjing Qinheng Microelectronics Co., Ltd.
- * Attention: This software (modified or not) and binary are used for 
+ * Attention: This software (modified or not) and binary are used for
  * microcontroller manufactured by Nanjing Qinheng Microelectronics.
  *******************************************************************************/
 #ifndef __CH32V00x_H
@@ -18,7 +18,7 @@ extern "C" {
 
 #ifndef HSE_VALUE
 #define HSE_VALUE                 ((uint32_t)24000000) /* Value of the External oscillator in Hz */
-#endif 
+#endif
 
 /* In the following line adjust the External High Speed oscillator (HSE) Startup Timeout value */
 #define HSE_STARTUP_TIMEOUT       ((uint16_t)0x2000) /* Time out for HSE start up */
@@ -377,6 +377,12 @@ typedef struct
 
 #define VENDOR_CFG0_BASE                        ((uint32_t)0x1FFFF7D4)
 #define CFG0_PLL_TRIM                           (VENDOR_CFG0_BASE)
+
+#define VENDOR_ESIG_BASE                        ((uint32_t)0x1FFFF7E0) /* Electronic signature data */
+#define ESIG_FLACAP                             (VENDOR_ESIG_BASE)
+#define ESIG_UNIID1                             (VENDOR_ESIG_BASE + 0x08uL)
+#define ESIG_UNIID2                             (VENDOR_ESIG_BASE + 0x0CuL)
+#define ESIG_UNIID3                             (VENDOR_ESIG_BASE + 0x10uL)
 
 /* Peripheral declaration */
 #define TIM2                                    ((TIM_TypeDef *)TIM2_BASE)
